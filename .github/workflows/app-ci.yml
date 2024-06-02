@@ -1,21 +1,22 @@
 name: Python CI
 
+# Define en qué eventos se activará el flujo de trabajo
 on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-
+# Define los jobs a ejecutar
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v2
-        - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-            python-version: '3.9'
-        - name: Install dependencies
-        run: |
-        python -m pip install --upgrade pip
+  build:
+    # Define el sistema operativo a usar (Ubuntu Linux en este caso)
+    runs-on: ubuntu-latest
+
+    # Pasos a ejecutar en este job
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
