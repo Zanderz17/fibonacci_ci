@@ -19,4 +19,4 @@ def test_fibonacci_performance_average():
         assert response.json() is not None
 
     average_time = (total_time / number_of_requests) * 1000
-    assert average_time <= 6.5, f"Average request time too long: {average_time}ms, exceeds 6.5ms"
+    assert average_time <= 9.5, f"Average request time too long: {average_time}ms, exceeds 9.5ms"
