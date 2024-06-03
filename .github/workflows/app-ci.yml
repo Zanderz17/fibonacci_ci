@@ -19,3 +19,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install flake8 pytest
+    - name: Check style with flake8
+      run: |
+        flake8 . --show-source --statistics
