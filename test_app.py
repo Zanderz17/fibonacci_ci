@@ -14,7 +14,7 @@ def test_fibonacci_success():
 def test_fibonacci_negative():
     response = client.get("/get_fibonacci/-1")
     assert response.status_code == 400
-    assert response.json() == {"detail": "El número debe ser un entero no negativo."}
+    assert response.json() == {"detail": "The number must be a non-negative integer."}
 
 
 def test_fibonacci_one():
