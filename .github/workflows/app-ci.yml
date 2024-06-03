@@ -1,22 +1,21 @@
 name: Python CI
 
-# Define en qué eventos se activará el flujo de trabajo
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
-# Define los jobs a ejecutar
 jobs:
   build:
-    # Define el sistema operativo a usar (Ubuntu Linux en este caso)
     runs-on: ubuntu-latest
 
-    # Pasos a ejecutar en este job
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+    - name: Install dependencies
+      run: |
+        pip install flake8 pytest
