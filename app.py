@@ -7,7 +7,7 @@ app = FastAPI()
 @lru_cache(maxsize=20)
 def fibonacci(n: int) -> int:
     if n < 0:
-        raise ValueError("El número debe ser un entero no negativo.")
+        raise ValueError("The number must be a non-negative integer.")
     if n == 0:
         return 0
     elif n == 1:
