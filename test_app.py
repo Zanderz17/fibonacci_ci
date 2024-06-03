@@ -2,8 +2,36 @@ from fastapi.testclient import TestClient
 from app import app
 import time
 
-
 client = TestClient(app)
+
+
+def test_fibonacci_success():
+    response = client.get("/get_fibonacci/5")
+    assert response.status_code == 200
+    assert response.json() == 5
+
+
+def test_fibonacci_negative():
+    response = client.get("/get_fibonacci/-1")
+    assert response.status_code == 400
+    assert response.json() == {"detail": "El número debe ser un entero no negativo."}
+
+
+def test_fibonacci_one():
+    response = client.get("/get_fibonacci/1")
+    assert response.status_code == 200
+    assert response.json() == 1
+
+
+def test_fibonacci_twenty():
+    response = client.get("/get_fibonacci/20")
+    assert response.status_code == 200
+    assert response.json() == 6765
+
+
+def test_fibonacci_invalid_input():
+    response = client.get("/get_fibonacci/abc")
+    assert response.status_code == 422
 
 
 def test_fibonacci_performance_average():
