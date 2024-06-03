@@ -1,9 +1,9 @@
 from fastapi.testclient import TestClient
 from app import app
-import requests
 import time
 
 client = TestClient(app)
+
 
 def test_fibonacci_success():
     response = client.get("/get_fibonacci/5")
